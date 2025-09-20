@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Xerx Mobile - Installation Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1e1b4b 100%);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(30, 27, 75, 0.9);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .logo-icon {
+            font-size: 48px;
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #7c3aed, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .version {
+            color: #10b981;
+            font-size: 14px;
+        }
+
+        .install-section {
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid #334155;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #7c3aed;
+        }
+
+        .steps {
+            counter-reset: step-counter;
+        }
+
+        .step {
+            counter-increment: step-counter;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+            padding: 16px;
+            background: rgba(124, 58, 237, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid #7c3aed;
+        }
+
+        .step-number {
+            background: #7c3aed;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .step-description {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #7c3aed;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            margin: 16px 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            background: #5b21b6;
+            transform: translateY(-2px);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .feature {
+            background: rgba(26, 26, 46, 0.8);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .feature-description {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .credentials {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid #10b981;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 24px;
+        }
+
+        .credentials-title {
+            color: #10b981;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .credential-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+        }
+
+        .credential-label {
+            color: #94a3b8;
+        }
+
+        .credential-value {
+            font-family: monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 24px;
+        }
+
+        .warning-title {
+            color: #f59e0b;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .warning-text {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .download-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <span class="logo-icon">🚀</span>
+                <span class="logo-text">Project Xerx</span>
+            </div>
+            <div class="subtitle">AI-Powered Secure Workspace</div>
+            <div class="version">Mobile PWA v2.0</div>
+        </div>
+
+        <div class="install-section">
+            <h2 class="section-title">📱 iOS Installation Guide</h2>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Open Safari Browser</div>
+                        <div class="step-description">Launch Safari on your iPhone or iPad. This is the only browser that supports PWA installation on iOS.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Navigate to Project Xerx</div>
+                        <div class="step-description">Go to the Project Xerx Mobile URL or open the project-xerx-mobile.html file directly in Safari.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Tap Share Button</div>
+                        <div class="step-description">Look for the square icon with an arrow pointing up (share button) in Safari's toolbar.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-title">Select "Add to Home Screen"</div>
+                        <div class="step-description">Scroll through the share options and tap "Add to Home Screen".</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <div class="step-title">Confirm Installation</div>
+                        <div class="step-description">Tap "Add" to confirm. The app icon will appear on your home screen.</div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="project-xerx-mobile.html" class="download-btn">
+                🚀 Launch Project Xerx Mobile
+            </a>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🔐</div>
+                <div class="feature-title">Advanced Security</div>
+                <div class="feature-description">Face ID authentication, anti-screenshot protection, and encrypted storage</div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <div class="feature-title">AI Assistant</div>
+                <div class="feature-description">Intelligent AI helper for notes, research, and translation tasks</div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <div class="feature-title">Mobile Optimized</div>
+                <div class="feature-description">Touch-first interface designed specifically for mobile devices</div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">📄</div>
+                <div class="feature-title">PDF/ePub Reader</div>
+                <div class="feature-description">Built-in document reader with AI analysis capabilities</div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🌐</div>
+                <div class="feature-title">Universal Translation</div>
+                <div class="feature-description">Translate between 50+ languages with AI-powered accuracy</div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🔬</div>
+                <div class="feature-title">Research Tools</div>
+                <div class="feature-description">AI-powered research with citations and source tracking</div>
+            </div>
+        </div>
+
+        <div class="credentials">
+            <div class="credentials-title">🔐 Login Credentials</div>
+            <div class="credential-item">
+                <span class="credential-label">Username:</span>
+                <span class="credential-value">xerx</span>
+            </div>
+            <div class="credential-item">
+                <span class="credential-label">Password:</span>
+                <span class="credential-value">Xerxes79445</span>
+            </div>
+        </div>
+
+        <div class="warning">
+            <div class="warning-title">⚠️ Important Notes</div>
+            <div class="warning-text">
+                • Use Safari browser for installation (other browsers won't show the "Add to Home Screen" option)<br>
+                • The app works completely offline after installation<br>
+                • All data stays on your device for maximum privacy<br>
+                • Enable JavaScript in Safari settings if you encounter issues
+            </div>
+        </div>
+    </div>
+</body>
+</html>
